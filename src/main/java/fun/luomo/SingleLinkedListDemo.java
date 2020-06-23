@@ -29,6 +29,7 @@ public class SingleLinkedListDemo {
         System.out.println("----------------");
         sl.delete(6);
         sl.showLinkList();
+        
     }
 }
 
