@@ -23,7 +23,12 @@ public class SingleLinkedListDemo {
         sl.addByOrder(node4);
         sl.addByOrder(node5);
         sl.showLinkList();
-
+        System.out.println("----------------");
+        sl.update(new HeroNode(3, "123", "123"));
+        sl.showLinkList();
+        System.out.println("----------------");
+        sl.delete(6);
+        sl.showLinkList();
     }
 }
 
@@ -56,8 +61,8 @@ class SingleLinkList {
             if (node.no < temp.next.no) {
                 break;
             }
-            if(node.no == temp.next.no){
-                System.out.println(node.no+" 已存在");
+            if (node.no == temp.next.no) {
+                System.out.println(node.no + " 已存在");
                 return;
             }
             temp = temp.next;
@@ -65,6 +70,42 @@ class SingleLinkList {
 
         node.next = temp.next;
         temp.next = node;
+    }
+
+    /**
+     * 根据编号修改
+     */
+    public void update(HeroNode node) {
+        HeroNode temp = head;
+
+        while (true) {
+            if (temp.next == null) {
+                return;
+            }
+            if (node.no == temp.next.no) {
+                break;
+            }
+            temp = temp.next;
+        }
+        node.next = temp.next.next;
+        temp.next = node;
+    }
+
+    /**
+     * 删除
+     */
+    public void delete(int no) {
+        HeroNode temp = head;
+        while (true) {
+            if (temp.next == null) {
+                return;
+            }
+            if (no == temp.next.no) {
+                break;
+            }
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
     }
 
     public void showLinkList() {
