@@ -11,19 +11,26 @@ import java.util.Stack;
 public class SingleLinkedListDemo {
     public static void main(String[] args) {
         SingleLinkList sl = new SingleLinkList();
+        SingleLinkList sl2 = new SingleLinkList();
         HeroNode node1 = new HeroNode(1, "宋江", "及时雨");
         HeroNode node2 = new HeroNode(2, "卢俊义", "玉麒麟");
         HeroNode node3 = new HeroNode(3, "吴用", "智多星");
-        HeroNode node4 = new HeroNode(4, "吴用", "智多星");
-        HeroNode node5 = new HeroNode(5, "吴用", "智多星");
+        HeroNode node4 = new HeroNode(4, "宋江", "及时雨");
+        HeroNode node41 = new HeroNode(4, "宋江", "及时雨");
+        HeroNode node5 = new HeroNode(5, "卢俊义", "玉麒麟");
+        HeroNode node6 = new HeroNode(6, "吴用", "智多星");
        /* sl.add(node1);
         sl.add(node3);
         sl.add(node2);*/
         sl.addByOrder(node1);
         sl.addByOrder(node2);
-        sl.addByOrder(node3);
         sl.addByOrder(node4);
-        sl.addByOrder(node5);
+
+        sl2.addByOrder(node3);
+        sl2.addByOrder(node41);
+        sl2.addByOrder(node5);
+        sl2.addByOrder(node6);
+
 //        sl.showLinkList();
 //        System.out.println("----------------");
 //        sl.update(new HeroNode(3, "123", "123"));
@@ -34,13 +41,19 @@ public class SingleLinkedListDemo {
 //        System.out.println("sl.size() = " + getLength(sl.getHead()));
 //        HeroNode lastNode = findLastNode(sl.getHead(), 2);
 //        System.out.println(lastNode != null ? lastNode.toString() : "错误");
-        sl.showLinkList();
-        System.out.println("----------------------");
-        reverse1(sl.getHead());
-        sl.showLinkList();
-        System.out.println("----------------------");
-        reversePrint(sl.getHead());
+//        sl.showLinkList();
+//        System.out.println("----------------------");
+//        reverse1(sl.getHead());
+//        sl.showLinkList();
+//        System.out.println("----------------------");
+//        reversePrint(sl.getHead());
 
+        HeroNode merge = merge(sl.getHead().next, sl2.getHead().next);
+
+        while (merge != null) {
+            System.out.println(merge);
+            merge = merge.next;
+        }
     }
 
     /**
@@ -114,6 +127,32 @@ public class SingleLinkedListDemo {
             System.out.println(stack.pop());
         }
 
+    }
+
+    /**
+     * 合并两个链表
+     */
+    public static HeroNode merge(HeroNode a, HeroNode b) {
+        if (a == null && b == null) {
+            return null;
+        }
+        if (a == null) {
+            return b;
+        }
+        if (b == null) {
+            return a;
+        }
+
+        HeroNode head = null;
+        if (a.no < b.no) {
+            head = a;
+            head.next = merge(a.next, b);
+        } else {
+            head = b;
+            head.next = merge(a, b.next);
+
+        }
+        return head;
     }
 }
 
