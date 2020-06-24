@@ -1,5 +1,8 @@
 package fun.luomo;
 
+import java.util.Iterator;
+import java.util.Stack;
+
 /**
  * @author Luomo
  * 单链表
@@ -20,21 +23,106 @@ public class SingleLinkedListDemo {
         sl.addByOrder(node2);
         sl.addByOrder(node3);
         sl.addByOrder(node4);
-        sl.addByOrder(node4);
         sl.addByOrder(node5);
+//        sl.showLinkList();
+//        System.out.println("----------------");
+//        sl.update(new HeroNode(3, "123", "123"));
+//        sl.showLinkList();
+//        System.out.println("----------------");
+//        sl.delete(3);
+//        sl.showLinkList();
+//        System.out.println("sl.size() = " + getLength(sl.getHead()));
+//        HeroNode lastNode = findLastNode(sl.getHead(), 2);
+//        System.out.println(lastNode != null ? lastNode.toString() : "错误");
         sl.showLinkList();
-        System.out.println("----------------");
-        sl.update(new HeroNode(3, "123", "123"));
+        System.out.println("----------------------");
+        reverse1(sl.getHead());
         sl.showLinkList();
-        System.out.println("----------------");
-        sl.delete(6);
-        sl.showLinkList();
-        
+        System.out.println("----------------------");
+        reversePrint(sl.getHead());
+
+    }
+
+    /**
+     * 节点个数
+     */
+    public static int getLength(HeroNode node) {
+        int len = 0;
+        HeroNode temp = node;
+        while (temp.next != null) {
+            len++;
+            temp = temp.next;
+        }
+        return len;
+    }
+
+    /**
+     * 倒数第K个节点个数
+     */
+    public static HeroNode findLastNode(HeroNode node, int index) {
+        int length = getLength(node);
+        if (index <= 0 || index > length) {
+            return null;
+        }
+        length = length - index + 1;
+        for (int i = 0; i < length; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    /**
+     * 头插翻转
+     */
+    public static void reverse1(HeroNode node) {
+        HeroNode temp = node.next;
+        HeroNode next = null;
+        HeroNode reverseHead = new HeroNode(0, "", "");
+
+        while (temp != null) {
+            next = temp.next;
+            temp.next = reverseHead.next;
+            reverseHead.next = temp;
+            temp = next;
+        }
+        node.next = reverseHead.next;
+    }
+
+    /**
+     * 原地翻转
+     */
+    public static void reverse2(HeroNode node) {
+        HeroNode temp = node.next;
+        HeroNode p = null;
+        HeroNode q = null;
+
+        p = temp.next;
+        q = p.next;
+    }
+
+    /**
+     * 逆序打印
+     */
+    public static void reversePrint(HeroNode node) {
+        HeroNode temp = node.next;
+        Stack<HeroNode> stack = new Stack<>();
+        while (temp != null) {
+            stack.push(temp);
+            temp = temp.next;
+        }
+        while (!stack.empty()) {
+            System.out.println(stack.pop());
+        }
+
     }
 }
 
 class SingleLinkList {
     private HeroNode head = new HeroNode(0, "", "");
+
+    public HeroNode getHead() {
+        return head;
+    }
 
     /**
      * 直接添加
@@ -108,6 +196,7 @@ class SingleLinkList {
         }
         temp.next = temp.next.next;
     }
+
 
     public void showLinkList() {
         if (head.next == null) {
