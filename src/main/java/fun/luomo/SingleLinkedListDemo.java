@@ -1,6 +1,5 @@
 package fun.luomo;
 
-import java.util.Iterator;
 import java.util.Stack;
 
 /**
@@ -274,3 +273,4 @@ class HeroNode {
                 '}';
     }
 }
+
