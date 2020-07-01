@@ -1,4 +1,4 @@
-package fun.luomo;
+package fun.luomo.queue;
 
 /**
  * @author Luomo
