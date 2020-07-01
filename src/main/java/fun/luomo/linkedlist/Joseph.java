@@ -4,7 +4,7 @@ package fun.luomo.linkedlist;
  * @author Luomo
  * create 2020/7/1 10:51
  */
-public class Josepfu {
+public class Joseph {
     public static void main(String[] args) {
         CircleSingleLinkedList csl = new CircleSingleLinkedList();
         csl.add(5);
