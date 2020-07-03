@@ -1,7 +1,5 @@
 package fun.luomo.stack;
 
-import com.sun.org.apache.bcel.internal.generic.GOTO;
-
 /**
  * @author Luomo
  * create 2020/7/2 10:01
