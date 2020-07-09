@@ -6,6 +6,7 @@ import java.util.Arrays;
  * @author Luomo
  * @date 2020/7/6 20:46
  */
+@SuppressWarnings("all")
 public class BubbleSort {
 
     public static void main(String[] args) {
@@ -41,7 +42,7 @@ public class BubbleSort {
 
     }
 
-    private static void swap(int[] arr,int i, int j) {
+    private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
