@@ -15,4 +15,10 @@
  #### 递归
  1. [迷宫](src/main/java/fun/luomo/recursion/MiGong.java)
  2. [暴力八皇后](src/main/java/fun/luomo/recursion/Queue8.java)
- 
+ #### 排序
+ 1. [冒泡排序](src/main/java/fun/luomo/sort/BubbleSort.java)
+ 2. [选择排序](src/main/java/fun/luomo/sort/SelectSort.java)
+ 3. [插入排序](src/main/java/fun/luomo/sort/InsertSort.java)
+ 4. [希尔排序](src/main/java/fun/luomo/sort/ShellSort.java)
+ 5. [快排](src/main/java/fun/luomo/sort/QuickSort.java)
+ 6. [归并排序](src/main/java/fun/luomo/sort/MergeSort.java)
