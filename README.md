@@ -22,4 +22,11 @@
  4. [希尔排序](src/main/java/fun/luomo/sort/ShellSort.java)
  5. [快排](src/main/java/fun/luomo/sort/QuickSort.java)
  6. [归并排序](src/main/java/fun/luomo/sort/MergeSort.java)
- 6. [基数排序](src/main/java/fun/luomo/sort/RadixSort.java)
+ 7. [基数排序](src/main/java/fun/luomo/sort/RadixSort.java)
+ #### 散列
+ 1. [哈希](src/main/java/fun/luomo/hashtab/HashTabDemo.java)
+ #### 数
+ 1. [二叉树](src/main/java/fun/luomo/tree/BinaryTreeDemo.java)
+ 2. [二叉树的数组表示](src/main/java/fun/luomo/tree/BinaryTreeDemo.java)
+ 3. [线索化二叉树](src/main/java/fun/luomo/tree/ThreadedBinaryTreeDemo.java)
+

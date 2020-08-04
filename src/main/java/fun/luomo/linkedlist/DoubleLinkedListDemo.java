@@ -151,7 +151,7 @@ class DoubleLinkList {
     }
 }
 
-class Node {
+class Node{
     public int no;
     public String name;
     public String nickname;

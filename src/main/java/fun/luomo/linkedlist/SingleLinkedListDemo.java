@@ -11,24 +11,24 @@ public class SingleLinkedListDemo {
     public static void main(String[] args) {
         SingleLinkList sl = new SingleLinkList();
         SingleLinkList sl2 = new SingleLinkList();
-        HeroNode node1 = new HeroNode(1, "宋江", "及时雨");
-        HeroNode node2 = new HeroNode(2, "卢俊义", "玉麒麟");
-        HeroNode node3 = new HeroNode(3, "吴用", "智多星");
-        HeroNode node4 = new HeroNode(4, "宋江", "及时雨");
-        HeroNode node41 = new HeroNode(4, "宋江", "及时雨");
-        HeroNode node5 = new HeroNode(5, "卢俊义", "玉麒麟");
-        HeroNode node6 = new HeroNode(6, "吴用", "智多星");
+        HeroNode heroHeroNode1 = new HeroNode(1, "宋江", "及时雨");
+        HeroNode heroHeroNode2 = new HeroNode(2, "卢俊义", "玉麒麟");
+        HeroNode heroHeroNode3 = new HeroNode(3, "吴用", "智多星");
+        HeroNode heroHeroNode4 = new HeroNode(4, "宋江", "及时雨");
+        HeroNode heroHeroNode41 = new HeroNode(4, "宋江", "及时雨");
+        HeroNode heroHeroNode5 = new HeroNode(5, "卢俊义", "玉麒麟");
+        HeroNode heroHeroNode6 = new HeroNode(6, "吴用", "智多星");
        /* sl.add(node1);
         sl.add(node3);
         sl.add(node2);*/
-        sl.addByOrder(node1);
-        sl.addByOrder(node2);
-        sl.addByOrder(node4);
+        sl.addByOrder(heroHeroNode1);
+        sl.addByOrder(heroHeroNode2);
+        sl.addByOrder(heroHeroNode4);
 
-        sl2.addByOrder(node3);
-        sl2.addByOrder(node41);
-        sl2.addByOrder(node5);
-        sl2.addByOrder(node6);
+        sl2.addByOrder(heroHeroNode3);
+        sl2.addByOrder(heroHeroNode41);
+        sl2.addByOrder(heroHeroNode5);
+        sl2.addByOrder(heroHeroNode6);
 
 //        sl.showLinkList();
 //        System.out.println("----------------");
@@ -58,9 +58,9 @@ public class SingleLinkedListDemo {
     /**
      * 节点个数
      */
-    public static int getLength(HeroNode node) {
+    public static int getLength(HeroNode heroNode) {
         int len = 0;
-        HeroNode temp = node;
+        HeroNode temp = heroNode;
         while (temp.next != null) {
             len++;
             temp = temp.next;
@@ -71,23 +71,23 @@ public class SingleLinkedListDemo {
     /**
      * 倒数第K个节点个数
      */
-    public static HeroNode findLastNode(HeroNode node, int index) {
-        int length = getLength(node);
+    public static HeroNode findLastNode(HeroNode heroNode, int index) {
+        int length = getLength(heroNode);
         if (index <= 0 || index > length) {
             return null;
         }
         length = length - index + 1;
         for (int i = 0; i < length; i++) {
-            node = node.next;
+            heroNode = heroNode.next;
         }
-        return node;
+        return heroNode;
     }
 
     /**
      * 头插翻转
      */
-    public static void reverse1(HeroNode node) {
-        HeroNode temp = node.next;
+    public static void reverse1(HeroNode heroNode) {
+        HeroNode temp = heroNode.next;
         HeroNode next = null;
         HeroNode reverseHead = new HeroNode(0, "", "");
 
@@ -97,14 +97,14 @@ public class SingleLinkedListDemo {
             reverseHead.next = temp;
             temp = next;
         }
-        node.next = reverseHead.next;
+        heroNode.next = reverseHead.next;
     }
 
     /**
      * 原地翻转
      */
-    public static void reverse2(HeroNode node) {
-        HeroNode temp = node.next;
+    public static void reverse2(HeroNode heroNode) {
+        HeroNode temp = heroNode.next;
         HeroNode p = null;
         HeroNode q = null;
 
@@ -115,8 +115,8 @@ public class SingleLinkedListDemo {
     /**
      * 逆序打印
      */
-    public static void reversePrint(HeroNode node) {
-        HeroNode temp = node.next;
+    public static void reversePrint(HeroNode heroNode) {
+        HeroNode temp = heroNode.next;
         Stack<HeroNode> stack = new Stack<>();
         while (temp != null) {
             stack.push(temp);
@@ -165,7 +165,7 @@ class SingleLinkList {
     /**
      * 直接添加
      */
-    public void add(HeroNode node) {
+    public void add(HeroNode heroNode) {
         HeroNode temp = head;
         while (true) {
             if (temp.next == null) {
@@ -173,49 +173,49 @@ class SingleLinkList {
             }
             temp = temp.next;
         }
-        temp.next = node;
+        temp.next = heroNode;
     }
 
     /**
      * 有序添加
      */
-    public void addByOrder(HeroNode node) {
+    public void addByOrder(HeroNode heroNode) {
         HeroNode temp = head;
         while (true) {
             if (temp.next == null) {
                 break;
             }
-            if (node.no < temp.next.no) {
+            if (heroNode.no < temp.next.no) {
                 break;
             }
-            if (node.no == temp.next.no) {
-                System.out.println(node.no + " 已存在");
+            if (heroNode.no == temp.next.no) {
+                System.out.println(heroNode.no + " 已存在");
                 return;
             }
             temp = temp.next;
         }
 
-        node.next = temp.next;
-        temp.next = node;
+        heroNode.next = temp.next;
+        temp.next = heroNode;
     }
 
     /**
      * 根据编号修改
      */
-    public void update(HeroNode node) {
+    public void update(HeroNode heroNode) {
         HeroNode temp = head;
 
         while (true) {
             if (temp.next == null) {
                 return;
             }
-            if (node.no == temp.next.no) {
+            if (heroNode.no == temp.next.no) {
                 break;
             }
             temp = temp.next;
         }
-        node.next = temp.next.next;
-        temp.next = node;
+        heroNode.next = temp.next.next;
+        temp.next = heroNode;
     }
 
     /**
